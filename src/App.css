@@ -1,20 +1,26 @@
 /* Global Variables */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
 :root {
-  --bg-primary: #121212;
-  --bg-secondary: #1e1e1e;
-  --text-primary: #ffffff;
-  --text-secondary: #b3b3b3;
-  --accent-primary: #00a8ff;
-  --accent-secondary: #0097e6;
+  --bg-primary: #121212; /* Dark background for the main area */
+  --bg-secondary: #1e1e1e; /* Darker background for sections */
+  --text-primary: #ffffff; /* White text for primary text */
+  --text-secondary: #b3b3b3; /* Light gray text for secondary text */
+  --accent-primary: #00a8ff; /* Bright blue for primary actions */
+  --accent-secondary: #0097e6; /* Light blue for hover states and secondary actions */
   --border-radius: 8px;
   --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
-  --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.2);
+  --container-max-width: 1200px;
+  --spacing-unit: 1rem; /* Base spacing unit */
 }
 
 /* Global Styles */
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
@@ -25,6 +31,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Header Styles */
@@ -32,6 +39,9 @@ header {
   background-color: var(--bg-secondary);
   padding: 1rem 2rem;
   box-shadow: var(--shadow-light);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 header h1 {
@@ -41,7 +51,6 @@ header h1 {
   color: var(--accent-primary);
 }
 
-/* Navigation Styles */
 nav {
   background-color: var(--bg-secondary);
   padding: 0.5rem 2rem;
@@ -73,28 +82,178 @@ nav a.active {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Main Content Styles */
-main {
-  flex-grow: 1;
-  padding: 2rem;
+/* Hero Section */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 2rem;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('/path/to/hero-image.jpg'); /* Replace with actual image */
+  background-size: cover;
+  background-position: center;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-unit);
 }
 
-/* Page-Specific Styles */
+.hero-section h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
 
-/* Home Page */
-.home-container {
+.hero-section p {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  max-width: 800px;
+}
+
+.hero-section .MuiButton-root {
+  background-color: var(--accent-primary);
+  padding: 0.75rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-medium);
+  transition: background-color 0.3s ease;
+}
+
+.hero-section .MuiButton-root:hover {
+  background-color: var(--accent-secondary);
+}
+
+/* Features Section */
+.features-section {
+  padding: 4rem 2rem;
+  background-color: var(--bg-primary);
   text-align: center;
 }
 
-.home-heading {
+.features-section h4 {
+  font-size: 2.5rem;
+  color: var(--accent-primary);
+  margin-bottom: 2.5rem;
+}
+
+.feature-card {
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-medium);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card .MuiSvgIcon-root {
+  font-size: 4rem;
   color: var(--accent-primary);
   margin-bottom: 1rem;
 }
 
-.home-description {
-  color: var(--text-secondary);
-  font-size: 1.1rem;
+.feature-card h6 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
 }
+
+.feature-card p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Why Choose Us Section */
+.why-choose-section {
+  padding: 4rem 2rem;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.why-choose-section h4 {
+  font-size: 2.5rem;
+  color: var(--accent-primary);
+  margin-bottom: 2rem;
+}
+
+.why-choose-item {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.why-choose-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+/* How It Works Section */
+.how-it-works-section {
+  padding: 4rem 2rem;
+  background-color: var(--bg-primary);
+  text-align: center;
+}
+
+.how-it-works-section h4 {
+  font-size: 2.5rem;
+  color: var(--accent-primary);
+  margin-bottom: 2rem;
+}
+
+.how-it-works-step {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.how-it-works-description {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Call to Action Section */
+.call-to-action-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.call-to-action-section h4 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.call-to-action-section .MuiButton-root {
+  background-color: var(--accent-primary);
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-medium);
+  transition: background-color 0.3s ease;
+}
+
+.call-to-action-section .MuiButton-root:hover {
+  background-color: var(--accent-secondary);
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--bg-secondary);
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--text-secondary);
+}
+
+/* Specific Component Styles */
 
 /* Customer Portal */
 .scooter-card {
@@ -119,20 +278,6 @@ main {
 .scooter-description {
   color: var(--text-secondary);
   margin-top: 0.5rem;
-}
-
-/* Recommendations */
-.recommendations-form {
-  background-color: var(--bg-secondary);
-  padding: 2rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-medium);
-  margin-bottom: 2rem;
-}
-
-.recommendations-result {
-  color: var(--text-secondary);
-  margin-top: 1rem;
 }
 
 /* Profile Page */
@@ -232,22 +377,6 @@ main {
   background-color: var(--accent-secondary);
 }
 
-/* Button Styles */
-.btn {
-  background-color: var(--accent-primary);
-  color: var(--text-primary);
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 1rem;
-}
-
-.btn:hover {
-  background-color: var(--accent-secondary);
-}
-
 /* Alerts */
 .alert-list {
   list-style-type: none;
@@ -296,5 +425,114 @@ main {
   }
   100% {
     box-shadow: 0 0 0 0 rgba(0, 168, 255, 0);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero-section h2 {
+    font-size: 2.5rem;
+  }
+
+  .features-section h4,
+  .why-choose-section h4,
+  .how-it-works-section h4,
+  .call-to-action-section h4 {
+    font-size: 2rem;
+  }
+
+  .feature-card,
+  .why-choose-item,
+  .how-it-works-step {
+    font-size: 1.25rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+}
+
+
+
+/* General Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scooters Section Styles */
+.scooters-container {
+  padding: 4rem 2rem;
+  background-color: var(--bg-primary);
+  text-align: center;
+}
+
+.scooter-card {
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  box-shadow: var(--shadow-medium);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.5s ease forwards;
+  margin-bottom: 1.5rem;
+}
+
+.scooter-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.scooter-image {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.scooter-details {
+  color: var(--text-primary);
+  text-align: left;
+  padding: 1rem;
+}
+
+.scooter-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin-bottom: 0.5rem;
+}
+
+.scooter-price,
+.scooter-range {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.scooter-button {
+  margin-top: 1rem;
+  background-color: var(--accent-primary);
+  color: var(--text-primary);
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.scooter-button:hover {
+  background-color: var(--accent-secondary);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .scooter-title {
+    font-size: 1.25rem;
   }
 }
